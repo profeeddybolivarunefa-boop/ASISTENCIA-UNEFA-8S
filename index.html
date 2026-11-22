@@ -1,330 +1,526 @@
-<html xmlns:v="urn:schemas-microsoft-com:vml"
-xmlns:o="urn:schemas-microsoft-com:office:office"
-xmlns:x="urn:schemas-microsoft-com:office:excel"
-xmlns="http://www.w3.org/TR/REC-html40">
-
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta name="Excel Workbook Frameset">
-<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
-<meta name=ProgId content=Excel.Sheet>
-<meta name=Generator content="Microsoft Excel 15">
-<link rel=File-List href="index.files/filelist.xml">
-<![if !supportTabStrip]>
-<link id="shLink" href="index.files/sheet001.html">
-<link id="shLink" href="index.files/sheet002.html">
-
-<link id="shLink">
-
-<script language="JavaScript">
-<!--
- var c_lTabs=2;
-
- var c_rgszSh=new Array(c_lTabs);
- c_rgszSh[0] = "1_Terminal_Escaneo";
- c_rgszSh[1] = "2_Acta_Consolidada_PDF";
-
-
-
- var c_rgszClr=new Array(8);
- c_rgszClr[0]="window";
- c_rgszClr[1]="buttonface";
- c_rgszClr[2]="windowframe";
- c_rgszClr[3]="windowtext";
- c_rgszClr[4]="threedlightshadow";
- c_rgszClr[5]="threedhighlight";
- c_rgszClr[6]="threeddarkshadow";
- c_rgszClr[7]="threedshadow";
-
- var g_iShCur;
- var g_rglTabX=new Array(c_lTabs);
-
-function fnGetIEVer()
-{
- var ua=window.navigator.userAgent
- var msie=ua.indexOf("MSIE")
- if (msie>0 && window.navigator.platform=="Win32")
-  return parseInt(ua.substring(msie+5,ua.indexOf(".", msie)));
- else
-  return 0;
-}
-
-function fnBuildFrameset()
-{
- var szHTML="<frameset rows=\"*,18\" border=0 width=0 frameborder=no framespacing=0>"+
-  "<frame src=\""+document.all.item("shLink")[0].href+"\" name=\"frSheet\" noresize>"+
-  "<frameset cols=\"54,*\" border=0 width=0 frameborder=no framespacing=0>"+
-  "<frame src=\"\" name=\"frScroll\" marginwidth=0 marginheight=0 scrolling=no>"+
-  "<frame src=\"\" name=\"frTabs\" marginwidth=0 marginheight=0 scrolling=no>"+
-  "</frameset></frameset><plaintext>";
-
- with (document) {
-  open("text/html","replace");
-  write(szHTML);
-  close();
- }
-
- fnBuildTabStrip();
-}
-
-function fnBuildTabStrip()
-{
- var szHTML=
-  "<html><head><style>.clScroll {font:8pt Courier New;color:"+c_rgszClr[6]+";cursor:default;line-height:10pt;}"+
-  ".clScroll2 {font:10pt Arial;color:"+c_rgszClr[6]+";cursor:default;line-height:11pt;}</style></head>"+
-  "<body onclick=\"event.returnValue=false;\" ondragstart=\"event.returnValue=false;\" onselectstart=\"event.returnValue=false;\" bgcolor="+c_rgszClr[4]+" topmargin=0 leftmargin=0><table cellpadding=0 cellspacing=0 width=100%>"+
-  "<tr><td colspan=6 height=1 bgcolor="+c_rgszClr[2]+"></td></tr>"+
-  "<tr><td style=\"font:1pt\">&nbsp;<td>"+
-  "<td valign=top id=tdScroll class=\"clScroll\" onclick=\"parent.fnFastScrollTabs(0);\" onmouseover=\"parent.fnMouseOverScroll(0);\" onmouseout=\"parent.fnMouseOutScroll(0);\"><a>&#171;</a></td>"+
-  "<td valign=top id=tdScroll class=\"clScroll2\" onclick=\"parent.fnScrollTabs(0);\" ondblclick=\"parent.fnScrollTabs(0);\" onmouseover=\"parent.fnMouseOverScroll(1);\" onmouseout=\"parent.fnMouseOutScroll(1);\"><a>&lt</a></td>"+
-  "<td valign=top id=tdScroll class=\"clScroll2\" onclick=\"parent.fnScrollTabs(1);\" ondblclick=\"parent.fnScrollTabs(1);\" onmouseover=\"parent.fnMouseOverScroll(2);\" onmouseout=\"parent.fnMouseOutScroll(2);\"><a>&gt</a></td>"+
-  "<td valign=top id=tdScroll class=\"clScroll\" onclick=\"parent.fnFastScrollTabs(1);\" onmouseover=\"parent.fnMouseOverScroll(3);\" onmouseout=\"parent.fnMouseOutScroll(3);\"><a>&#187;</a></td>"+
-  "<td style=\"font:1pt\">&nbsp;<td></tr></table></body></html>";
-
- with (frames['frScroll'].document) {
-  open("text/html","replace");
-  write(szHTML);
-  close();
- }
-
- szHTML =
-  "<html><head>"+
-  "<style>A:link,A:visited,A:active {text-decoration:none;"+"color:"+c_rgszClr[3]+";}"+
-  ".clTab {cursor:hand;background:"+c_rgszClr[1]+";font:9pt Arial;padding-left:3px;padding-right:3px;text-align:center;}"+
-  ".clBorder {background:"+c_rgszClr[2]+";font:1pt;}"+
-  "</style></head><body onload=\"parent.fnInit();\" onselectstart=\"event.returnValue=false;\" ondragstart=\"event.returnValue=false;\" bgcolor="+c_rgszClr[4]+
-  " topmargin=0 leftmargin=0><table id=tbTabs cellpadding=0 cellspacing=0>";
-
- var iCellCount=(c_lTabs+1)*2;
-
- var i;
- for (i=0;i<iCellCount;i+=2)
-  szHTML+="<col width=1><col>";
-
- var iRow;
- for (iRow=0;iRow<6;iRow++) {
-
-  szHTML+="<tr>";
-
-  if (iRow==5)
-   szHTML+="<td colspan="+iCellCount+"></td>";
-  else {
-   if (iRow==0) {
-    for(i=0;i<iCellCount;i++)
-     szHTML+="<td height=1 class=\"clBorder\"></td>";
-   } else if (iRow==1) {
-    for(i=0;i<c_lTabs;i++) {
-     szHTML+="<td height=1 nowrap class=\"clBorder\">&nbsp;</td>";
-     szHTML+=
-      "<td id=tdTab height=1 nowrap class=\"clTab\" onmouseover=\"parent.fnMouseOverTab("+i+");\" onmouseout=\"parent.fnMouseOutTab("+i+");\">"+
-      "<a href=\""+document.all.item("shLink")[i].href+"\" target=\"frSheet\" id=aTab>&nbsp;"+c_rgszSh[i]+"&nbsp;</a></td>";
-    }
-    szHTML+="<td id=tdTab height=1 nowrap class=\"clBorder\"><a id=aTab>&nbsp;</a></td><td width=100%></td>";
-   } else if (iRow==2) {
-    for (i=0;i<c_lTabs;i++)
-     szHTML+="<td height=1></td><td height=1 class=\"clBorder\"></td>";
-    szHTML+="<td height=1></td><td height=1></td>";
-   } else if (iRow==3) {
-    for (i=0;i<iCellCount;i++)
-     szHTML+="<td height=1></td>";
-   } else if (iRow==4) {
-    for (i=0;i<c_lTabs;i++)
-     szHTML+="<td height=1 width=1></td><td height=1></td>";
-    szHTML+="<td height=1 width=1></td><td></td>";
-   }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asistencia Defensa Integral VIII — UNEFA</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<style>
+  :root {
+    --navy: #1B365D;
+    --slate: #2C4D75;
+    --olive: #3B5323;
+    --bg: #F1F5F9;
+    --card: #FFFFFF;
+    --green-bg: #DCFCE7;
+    --green-txt: #166534;
+    --red-bg: #FEE2E2;
+    --red-txt: #991B1B;
+    --amber-bg: #FEF3C7;
+    --amber-txt: #92400E;
   }
-  szHTML+="</tr>";
- }
-
- szHTML+="</table></body></html>";
- with (frames['frTabs'].document) {
-  open("text/html","replace");
-  charset=document.charset;
-  write(szHTML);
-  close();
- }
-}
-
-function fnInit()
-{
- g_rglTabX[0]=0;
- var i;
- for (i=1;i<=c_lTabs;i++)
-  with (frames['frTabs'].document.all.tbTabs.rows[1].cells[fnTabToCol(i-1)])
-   g_rglTabX[i]=offsetLeft+offsetWidth-6;
-}
-
-function fnTabToCol(iTab)
-{
- return 2*iTab+1;
-}
-
-function fnNextTab(fDir)
-{
- var iNextTab=-1;
- var i;
-
- with (frames['frTabs'].document.body) {
-  if (fDir==0) {
-   if (scrollLeft>0) {
-    for (i=0;i<c_lTabs&&g_rglTabX[i]<scrollLeft;i++);
-    if (i<c_lTabs)
-     iNextTab=i-1;
-   }
-  } else {
-   if (g_rglTabX[c_lTabs]+6>offsetWidth+scrollLeft) {
-    for (i=0;i<c_lTabs&&g_rglTabX[i]<=scrollLeft;i++);
-    if (i<c_lTabs)
-     iNextTab=i;
-   }
+  * { box-sizing: border-box; font-family: 'Segoe UI', Calibri, Arial, sans-serif; }
+  body { margin: 0; background: var(--bg); color: #0F172A; }
+  header {
+    background: linear-gradient(135deg, var(--navy), var(--slate));
+    color: white; padding: 14px 20px; text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   }
- }
- return iNextTab;
-}
+  header h1 { margin: 0; font-size: 1.2rem; }
+  header p { margin: 4px 0 0; font-size: 0.85rem; opacity: 0.92; }
 
-function fnScrollTabs(fDir)
-{
- var iNextTab=fnNextTab(fDir);
-
- if (iNextTab>=0) {
-  frames['frTabs'].scroll(g_rglTabX[iNextTab],0);
-  return true;
- } else
-  return false;
-}
-
-function fnFastScrollTabs(fDir)
-{
- if (c_lTabs>16)
-  frames['frTabs'].scroll(g_rglTabX[fDir?c_lTabs-1:0],0);
- else
-  if (fnScrollTabs(fDir)>0) window.setTimeout("fnFastScrollTabs("+fDir+");",5);
-}
-
-function fnSetTabProps(iTab,fActive)
-{
- var iCol=fnTabToCol(iTab);
- var i;
-
- if (iTab>=0) {
-  with (frames['frTabs'].document.all) {
-   with (tbTabs) {
-    for (i=0;i<=4;i++) {
-     with (rows[i]) {
-      if (i==0)
-       cells[iCol].style.background=c_rgszClr[fActive?0:2];
-      else if (i>0 && i<4) {
-       if (fActive) {
-        cells[iCol-1].style.background=c_rgszClr[2];
-        cells[iCol].style.background=c_rgszClr[0];
-        cells[iCol+1].style.background=c_rgszClr[2];
-       } else {
-        if (i==1) {
-         cells[iCol-1].style.background=c_rgszClr[2];
-         cells[iCol].style.background=c_rgszClr[1];
-         cells[iCol+1].style.background=c_rgszClr[2];
-        } else {
-         cells[iCol-1].style.background=c_rgszClr[4];
-         cells[iCol].style.background=c_rgszClr[(i==2)?2:4];
-         cells[iCol+1].style.background=c_rgszClr[4];
-        }
-       }
-      } else
-       cells[iCol].style.background=c_rgszClr[fActive?2:4];
-     }
-    }
-   }
-   with (aTab[iTab].style) {
-    cursor=(fActive?"default":"hand");
-    color=c_rgszClr[3];
-   }
+  .container { max-width: 1060px; margin: 16px auto; padding: 0 14px; }
+  .toolbar {
+    display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between;
+    align-items: center; background: var(--card); padding: 12px 16px;
+    border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); margin-bottom: 14px;
   }
- }
-}
-
-function fnMouseOverScroll(iCtl)
-{
- frames['frScroll'].document.all.tdScroll[iCtl].style.color=c_rgszClr[7];
-}
-
-function fnMouseOutScroll(iCtl)
-{
- frames['frScroll'].document.all.tdScroll[iCtl].style.color=c_rgszClr[6];
-}
-
-function fnMouseOverTab(iTab)
-{
- if (iTab!=g_iShCur) {
-  var iCol=fnTabToCol(iTab);
-  with (frames['frTabs'].document.all) {
-   tdTab[iTab].style.background=c_rgszClr[5];
+  .btn {
+    border: none; border-radius: 7px; padding: 10px 16px; font-size: 0.9rem;
+    font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 7px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
- }
-}
-
-function fnMouseOutTab(iTab)
-{
- if (iTab>=0) {
-  var elFrom=frames['frTabs'].event.srcElement;
-  var elTo=frames['frTabs'].event.toElement;
-
-  if ((!elTo) ||
-   (elFrom.tagName==elTo.tagName) ||
-   (elTo.tagName=="A" && elTo.parentElement!=elFrom) ||
-   (elFrom.tagName=="A" && elFrom.parentElement!=elTo)) {
-
-   if (iTab!=g_iShCur) {
-    with (frames['frTabs'].document.all) {
-     tdTab[iTab].style.background=c_rgszClr[1];
-    }
-   }
+  .btn:hover {
+    transform: translateY(3px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.18);
   }
- }
-}
+  .btn:active { transform: translateY(4px); }
+  .btn-primary { background: var(--navy); color: white; }
+  .btn-olive { background: var(--olive); color: white; }
+  .btn-print { background: #0369A1; color: white; }
+  .btn-danger { background: #DC2626; color: white; }
+  .btn-secondary { background: #E2E8F0; color: #1E293B; }
 
-function fnSetActiveSheet(iSh)
-{
- if (iSh!=g_iShCur) {
-  fnSetTabProps(g_iShCur,false);
-  fnSetTabProps(iSh,true);
-  g_iShCur=iSh;
- }
-}
+  .kpis {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 10px; margin-bottom: 14px;
+  }
+  @media (max-width: 640px) {
+    .kpis { grid-template-columns: repeat(2, 1fr); }
+  }
+  .kpi-card {
+    background: var(--card); border-radius: 9px; padding: 10px; text-align: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08); border-top: 4px solid var(--navy);
+  }
+  .kpi-card.green { border-top-color: #16A34A; }
+  .kpi-card.red { border-top-color: #DC2626; }
+  .kpi-label { font-size: 0.72rem; font-weight: 700; color: #64748B; text-transform: uppercase; }
+  .kpi-val { font-size: 1.5rem; font-weight: 800; margin-top: 2px; color: var(--navy); }
+  .kpi-card.green .kpi-val { color: var(--green-txt); }
+  .kpi-card.red .kpi-val { color: var(--red-txt); }
 
- window.g_iIEVer=fnGetIEVer();
- if (window.g_iIEVer>=4)
-  fnBuildFrameset();
-//-->
-</script>
-<![endif]><!--[if gte mso 9]><xml>
- <x:ExcelWorkbook>
-  <x:ExcelWorksheets>
-   <x:ExcelWorksheet>
-    <x:Name>1_Terminal_Escaneo</x:Name>
-    <x:WorksheetSource HRef="index.files/sheet001.html"/>
-   </x:ExcelWorksheet>
-   <x:ExcelWorksheet>
-    <x:Name>2_Acta_Consolidada_PDF</x:Name>
-    <x:WorksheetSource HRef="index.files/sheet002.html"/>
-   </x:ExcelWorksheet>
-  </x:ExcelWorksheets>
-  <x:Stylesheet HRef="index.files/stylesheet.css"/>
-  <x:WindowHeight>13140</x:WindowHeight>
-  <x:WindowWidth>24240</x:WindowWidth>
-  <x:WindowTopX>32767</x:WindowTopX>
-  <x:WindowTopY>32767</x:WindowTopY>
-  <x:ProtectStructure>False</x:ProtectStructure>
-  <x:ProtectWindows>False</x:ProtectWindows>
- </x:ExcelWorkbook>
-</xml><![endif]-->
+  /* POPUP MODAL */
+  .modal-backdrop {
+    position: fixed; inset: 0; background: rgba(15, 23, 42, 0.65);
+    display: flex; align-items: center; justify-content: center; z-index: 1000;
+    backdrop-filter: blur(2px);
+  }
+  .modal-backdrop.hidden { display: none; }
+  .modal-box {
+    background: white; width: 92%; max-width: 430px; border-radius: 14px;
+    overflow: hidden; box-shadow: 0 20px 35px rgba(0,0,0,0.3);
+  }
+  .modal-header {
+    background: var(--navy); color: white; padding: 14px 18px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .modal-header h2 { margin: 0; font-size: 1.05rem; }
+  .modal-close {
+    background: transparent; border: none; color: white; font-size: 1.4rem;
+    cursor: pointer; line-height: 1;
+  }
+  .modal-body { padding: 18px; }
+  .modal-body label { display: block; font-weight: 600; margin-bottom: 8px; color: #1E293B; }
+  .ci-input {
+    width: 100%; padding: 11px 14px; font-size: 1.2rem; font-weight: 700;
+    text-align: center; border: 2px solid #94A3B8; border-radius: 8px; outline: none;
+  }
+  .ci-input:focus { border-color: var(--navy); }
+  .modal-actions { display: flex; gap: 10px; margin-top: 12px; }
+  .modal-actions .btn { flex: 1; justify-content: center; }
+
+  .feedback {
+    margin-top: 12px; padding: 10px 12px; border-radius: 8px; font-size: 0.88rem;
+    font-weight: 600; display: none; line-height: 1.35;
+  }
+  .feedback.ok { display: block; background: var(--green-bg); color: var(--green-txt); border: 1px solid #86EFAC; }
+  .feedback.dup { display: block; background: var(--amber-bg); color: var(--amber-txt); border: 1px solid #FCD34D; }
+  .feedback.err { display: block; background: var(--red-bg); color: var(--red-txt); border: 1px solid #FCA5A5; }
+
+  /* ACTA SINGLE-PAGE OPTIMIZED */
+  .acta-sheet {
+    background: white; padding: 12px 16px; border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+  .acta-inst { text-align: center; margin-bottom: 5px; }
+  .acta-inst h3 { margin: 1px 0; font-size: 0.76rem; color: var(--navy); }
+  .acta-inst .title-bar {
+    background: var(--navy); color: white; padding: 4px; font-weight: 700;
+    font-size: 0.84rem; margin-top: 4px;
+  }
+  .acta-meta {
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px;
+    font-size: 0.74rem; font-weight: 700; margin-bottom: 5px; padding-bottom: 3px;
+    border-bottom: 1.5px solid var(--navy);
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 0.63rem; }
+  th {
+    background: var(--navy); color: white; padding: 2.5px 4px; text-align: center;
+    border: 1px solid #CBD5E1;
+  }
+  td { padding: 1.8px 5px; border: 1px solid #CBD5E1; line-height: 1.12; }
+  tr:nth-child(even) { background: #F8FAFC; }
+  .center { text-align: center; }
+  .badge {
+    display: inline-block; padding: 1px 6px; border-radius: 8px;
+    font-weight: 700; font-size: 0.6rem;
+  }
+  .badge-asistente { background: var(--green-bg); color: var(--green-txt); }
+  .badge-inasistente { background: var(--red-bg); color: var(--red-txt); }
+
+  .summary-box { margin-top: 6px; }
+  .summary-box h4 {
+    background: var(--navy); color: white; margin: 0; padding: 2.5px 8px;
+    font-size: 0.73rem; text-align: center;
+  }
+  .signatures {
+    display: flex; justify-content: space-around; margin-top: 18px;
+    text-align: center; font-size: 0.7rem; font-weight: 700;
+  }
+  .sig-line { width: 220px; border-top: 1px solid #0F172A; padding-top: 3px; }
+
+  /* NATIVE PRINT 1-PAGE RULE */
+  @media print {
+    @page { size: letter portrait; margin: 6mm; }
+    body { background: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    header, .toolbar, .kpis, .modal-backdrop { display: none !important; }
+    .container { max-width: 100%; margin: 0; padding: 0; }
+    .acta-sheet { box-shadow: none; padding: 0; border-radius: 0; }
+    table { font-size: 6.4pt; }
+    th, td { padding: 1.2px 4px; line-height: 1.05; }
+    .signatures { margin-top: 12px; }
+  }
+</style>
 </head>
+<body>
 
-<frameset rows="*,39" border=0 width=0 frameborder=no framespacing=0>
- <frame src="index.files/sheet001.html" name="frSheet">
- <frame src="index.files/tabstrip.html" name="frTabs" marginwidth=0 marginheight=0>
- <noframes>
-  <body>
-   <p>Esta p�gina utiliza marcos que tu explorador no admite.</p>
-  </body>
- </noframes>
-</frameset>
+<header>
+  <h1>UNEFA — CONTROL DE ASISTENCIA (DEFENSA INTEGRAL DE LA NACIÓN VIII)</h1>
+  <p>Prof. Eddy Alexander Bolívar Rodríguez &nbsp;|&nbsp; Secciones Unificadas: 08S-2422-D1 y 08S-2622-D1</p>
+</header>
+
+<div class="container">
+  <div class="toolbar">
+    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+      <button class="btn btn-primary" onclick="openModal()">Ingresar cédula o escanear cédula</button>
+      <button class="btn btn-olive" onclick="downloadPDF()">Descargar PDF (1 Hoja)</button>
+      <button class="btn btn-print" onclick="window.print()">Imprimir / Guardar PDF Nativo</button>
+    </div>
+    <button class="btn btn-danger" onclick="resetAttendance()">Reiniciar Lista</button>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi-card">
+      <div class="kpi-label">Total Personal</div>
+      <div class="kpi-val" id="kpiTotal">70</div>
+    </div>
+    <div class="kpi-card green">
+      <div class="kpi-label">Total Asistentes</div>
+      <div class="kpi-val" id="kpiPresent">0</div>
+    </div>
+    <div class="kpi-card red">
+      <div class="kpi-label">Total Inasistentes</div>
+      <div class="kpi-val" id="kpiAbsent">70</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">% Asistencia</div>
+      <div class="kpi-val" id="kpiPct">0.0%</div>
+    </div>
+  </div>
+
+  <div class="acta-sheet" id="actaPDF">
+    <div class="acta-inst">
+      <h3>REPÚBLICA BOLIVARIANA DE VENEZUELA — MINISTERIO DEL PODER POPULAR PARA LA DEFENSA</h3>
+      <h3>UNIVERSIDAD NACIONAL EXPERIMENTAL POLITÉCNICA DE LA FUERZA ARMADA NACIONAL (UNEFA)</h3>
+      <div class="title-bar">ACTA CONSOLIDADA DE ASISTENCIA — DEFENSA INTEGRAL DE LA NACIÓN VIII</div>
+    </div>
+    <div class="acta-meta">
+      <span>PROFESOR: EDDY ALEXANDER BOLIVAR RODRIGUEZ</span>
+      <span>SECCIONES: 08S-2422-D1 y 08S-2622-D1</span>
+      <span id="fechaActa">FECHA: </span>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width:32px;">N°</th>
+          <th style="width:82px;">SECCIÓN</th>
+          <th style="width:145px;">MATRÍCULA</th>
+          <th style="width:76px;">CÉDULA</th>
+          <th>NOMBRES Y APELLIDOS</th>
+          <th style="width:95px;">CONDICIÓN</th>
+        </tr>
+      </thead>
+      <tbody id="studentBody"></tbody>
+    </table>
+
+    <div class="summary-box">
+      <h4>TOTALIZACIÓN GENERAL DE PERSONAL</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>CONCEPTO</th>
+            <th>SECCIÓN 08S-2422-D1</th>
+            <th>SECCIÓN 08S-2622-D1</th>
+            <th>TOTAL GENERAL</th>
+            <th>PORCENTAJE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>TOTAL PERSONAL (MATRÍCULA)</strong></td>
+            <td class="center" id="tMat1">40</td>
+            <td class="center" id="tMat2">30</td>
+            <td class="center"><strong id="tMatAll">70</strong></td>
+            <td class="center">100.0%</td>
+          </tr>
+          <tr style="background:#F0FDF4;">
+            <td><strong>TOTAL ASISTENTES</strong></td>
+            <td class="center" id="tPres1">0</td>
+            <td class="center" id="tPres2">0</td>
+            <td class="center" style="color:#166534;"><strong id="tPresAll">0</strong></td>
+            <td class="center" id="tPresPct">0.0%</td>
+          </tr>
+          <tr style="background:#FEF2F2;">
+            <td><strong>TOTAL INASISTENTES</strong></td>
+            <td class="center" id="tAbs1">40</td>
+            <td class="center" id="tAbs2">30</td>
+            <td class="center" style="color:#991B1B;"><strong id="tAbsAll">70</strong></td>
+            <td class="center" id="tAbsPct">100.0%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="signatures">
+      <div class="sig-line">PROF. EDDY ALEXANDER BOLIVAR RODRIGUEZ<br>DOCENTE DEFENSA INTEGRAL</div>
+      <div class="sig-line">COORDINACIÓN DE DEFENSA INTEGRAL<br>FIRMA Y SELLO</div>
+    </div>
+  </div>
+</div>
+
+<!-- VENTANA EMERGENTE POPUP -->
+<div class="modal-backdrop" id="scanModal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h2>Ingresar cédula o escanear cédula</h2>
+      <button class="modal-close" onclick="closeModal()" title="Cerrar">&times;</button>
+    </div>
+    <div class="modal-body">
+      <label for="ciInput">Pase el escáner o escriba el número de cédula:</label>
+      <input type="text" id="ciInput" class="ci-input" placeholder="Ej: 30702937" autocomplete="off" />
+      <div class="modal-actions">
+        <button class="btn btn-primary" onclick="registerCI()">Registrar Asistencia</button>
+        <button class="btn btn-secondary" onclick="closeModal()">Cerrar</button>
+      </div>
+      <div id="feedbackBox" class="feedback"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const STUDENTS = [
+  { "sec": "08S-2422-D1", "mat": "2-2022-2226D-V-30702937", "ci": "30702937", "name": "NILSSON GABRIEL PESTANO MADERA" },
+  { "sec": "08S-2422-D1", "mat": "2-2022-2226D-V-30824620", "ci": "30824620", "name": "DANIELA JOSÉ CASTRO ESCOBAR" },
+  { "sec": "08S-2422-D1", "mat": "2-2022-2226D-V-31130955", "ci": "31130955", "name": "RANZENY FABIOLA LEDEZMA CARABALLO" },
+  { "sec": "08S-2422-D1", "mat": "2-2022-2226D-V-31201071", "ci": "31201071", "name": "YEFRAINI INAILE CASTRO BOLIVAR" },
+  { "sec": "08S-2422-D1", "mat": "2-2022-2226D-V-30969982", "ci": "30969982", "name": "JOVANNA CAROLINA SALAZAR ROJAS" },
+  { "sec": "08S-2422-D1", "mat": "2-2022-2226D-V-31605935", "ci": "31605935", "name": "LUIS MIGUEL FREITES SUÁREZ" },
+  { "sec": "08S-2422-D1", "mat": "2-2017-2226N-V-27441575", "ci": "27441575", "name": "JOSUÉ SAMUEL SALAZAR BLANCO" },
+  { "sec": "08S-2422-D1", "mat": "2-2022-2226N-V-30702092", "ci": "30702092", "name": "WILSON JESUS BOLIVAR BENITEZ" },
+  { "sec": "08S-2422-D1", "mat": "2-2022-2226N-V-31737990", "ci": "31737990", "name": "LUIS FERNANDO ROPERO GALBAN" },
+  { "sec": "08S-2422-D1", "mat": "2-2022-2226N-V-29815867", "ci": "29815867", "name": "KEIYI JOSE FARIAS GALBAN" },
+  { "sec": "08S-2422-D1", "mat": "1-2022-2226N-V-17482206", "ci": "17482206", "name": "JOHAN RICARDO ESCOBAR VERENZUELA" },
+  { "sec": "08S-2422-D1", "mat": "2-2022-2226N-V-20780987", "ci": "20780987", "name": "JOSEBEL TIBIZAY SANCHEZ LOPEZ" },
+  { "sec": "08S-2422-D1", "mat": "2-2020-2226N-V-30526997", "ci": "30526997", "name": "GILBERT JESUS HERNANDEZ UGAS" },
+  { "sec": "08S-2422-D1", "mat": "2-2022-2226N-V-24806967", "ci": "24806967", "name": "JESUS ANTONIO DABUEMA FLORES" },
+  { "sec": "08S-2422-D1", "mat": "2-2022-2226N-V-30041620", "ci": "30041620", "name": "EDIMAR DEL VALLE DIAZ GARCÍA" },
+  { "sec": "08S-2422-D1", "mat": "2-2022-2226N-V-29911229", "ci": "29911229", "name": "RAYMARIS YOGLEIDIS GUAICARA HERNANDEZ" },
+  { "sec": "08S-2422-D1", "mat": "2-2022-2226N-V-30260391", "ci": "30260391", "name": "YEREMYTH ROGER MARCANO MENDOZA" },
+  { "sec": "08S-2422-D1", "mat": "2-2022-2224D-V-27294460", "ci": "27294460", "name": "ARIANGGELA ALBARIS MENDOZA CEDEÑO" },
+  { "sec": "08S-2422-D1", "mat": "2-2022-2224D-V-18755074", "ci": "18755074", "name": "SARAI EDAILY BOLIVAR DIAZ" },
+  { "sec": "08S-2422-D1", "mat": "2-2022-2224D-V-30225662", "ci": "30225662", "name": "JHOM LUIS LÓPEZ ORTEGA" },
+  { "sec": "08S-2422-D1", "mat": "2-2022-2224D-V-31201616", "ci": "31201616", "name": "ABRAHAM JOSE VALLEJO SULBARAN" },
+  { "sec": "08S-2422-D1", "mat": "2-2022-2224D-V-29777718", "ci": "29777718", "name": "DERWIN JESUS PALMA VARGAS" },
+  { "sec": "08S-2422-D1", "mat": "2-2022-2224D-V-31044619", "ci": "31044619", "name": "JOSÉ ALEJANDRO GONZÁLEZ CUADROS" },
+  { "sec": "08S-2422-D1", "mat": "2-2022-2224D-V-31131530", "ci": "31131530", "name": "RAICHELLE ADIARIS DEL CARMEN MORENO VEROES" },
+  { "sec": "08S-2422-D1", "mat": "2-2022-2224D-V-30369720", "ci": "30369720", "name": "JORGE GABRIEL ROMERO MELGAREJO" },
+  { "sec": "08S-2422-D1", "mat": "2-2022-2224D-V-31291101", "ci": "31291101", "name": "CARLOS DANIEL CALDERON BRITO" },
+  { "sec": "08S-2422-D1", "mat": "2-2022-2224D-V-30632683", "ci": "30632683", "name": "ARGENIS GABRIEL MARTINEZ ECHARRY" },
+  { "sec": "08S-2422-D1", "mat": "2-2021-2224D-V-30632791", "ci": "30632791", "name": "RAIBERTH JOEL LONGA LAVENTIUR" },
+  { "sec": "08S-2422-D1", "mat": "2-2022-2224D-V-31201193", "ci": "31201193", "name": "MIGUEL DAVID BRICEÑO BETHELMY" },
+  { "sec": "08S-2422-D1", "mat": "2-2018-2224D-V-30022809", "ci": "30022809", "name": "GREGSON GABRIEL VELASQUEZ SEIJAS" },
+  { "sec": "08S-2422-D1", "mat": "2-2022-2224D-V-31428101", "ci": "31428101", "name": "ROXBELIS ANDREINA BERMUDEZ ALEJOS" },
+  { "sec": "08S-2422-D1", "mat": "2-2022-2224N-V-21193401", "ci": "21193401", "name": "DAVID JOSE ALVAREZ DE LUGO LAREZ" },
+  { "sec": "08S-2422-D1", "mat": "1-2021-2224N-V-24801980", "ci": "24801980", "name": "ANTONIO JOSE PEREZ SALAZAR" },
+  { "sec": "08S-2422-D1", "mat": "2-2022-2210D-V-30969427", "ci": "30969427", "name": "JERRY JOSE QUINTANA RAMOS" },
+  { "sec": "08S-2422-D1", "mat": "2-2022-2210D-V-30314966", "ci": "30314966", "name": "ALEX ADRIAN BENEDICT FRANCO NIETO" },
+  { "sec": "08S-2422-D1", "mat": "2-2022-2210D-V-31373223", "ci": "31373223", "name": "NELMARYS ANDERLYN CASTILLO ROJAS" },
+  { "sec": "08S-2422-D1", "mat": "2-2022-2210N-V-29939478", "ci": "29939478", "name": "DAVID ALEJANDRO CANELONES CANELONES" },
+  { "sec": "08S-2422-D1", "mat": "1-2022-2210N-V-30353831", "ci": "30353831", "name": "MAIKELLYS INMACULADA ROMERO URDANETA" },
+  { "sec": "08S-2422-D1", "mat": "2-2022-2210N-V-19914977", "ci": "19914977", "name": "CARLOS ANDRES PALACIOS MENA" },
+  { "sec": "08S-2422-D1", "mat": "1-2023-2210N-V-16310429", "ci": "16310429", "name": "ALEJANDRINA MARÍA PACHANO CASTRO" },
+  { "sec": "08S-2622-D1", "mat": "2-2021-2226D-V-30225765", "ci": "30225765", "name": "ADONAI NICANOR ALVARADO ZAMBRANO" },
+  { "sec": "08S-2622-D1", "mat": "2-2021-2226D-V-31201833", "ci": "31201833", "name": "MAIKOL ALEXANDER ACEVEDO MEDINA" },
+  { "sec": "08S-2622-D1", "mat": "2-2018-2226D-V-28314311", "ci": "28314311", "name": "YSA GABRIELA GOROZABEL RODRIGUEZ" },
+  { "sec": "08S-2622-D1", "mat": "2-2022-2226D-V-28314475", "ci": "28314475", "name": "FERNANDO MANUEL DA SILVA GUILARTE" },
+  { "sec": "08S-2622-D1", "mat": "2-2022-2226D-V-31428219", "ci": "31428219", "name": "GABRIEL EDUARDO AGUILERA GOMEZ" },
+  { "sec": "08S-2622-D1", "mat": "2-2021-2226D-V-30824541", "ci": "30824541", "name": "ALEJANDRO JOSE ALGARIN AGUILERA" },
+  { "sec": "08S-2622-D1", "mat": "2-2022-2226D-V-31508245", "ci": "31508245", "name": "LIZBELIS ODALI SUAREZ CHAPARRO" },
+  { "sec": "08S-2622-D1", "mat": "2-2022-2226D-V-30170441", "ci": "30170441", "name": "NAYEULIS KRISMAR ECHARRY MARCANO" },
+  { "sec": "08S-2622-D1", "mat": "2-2022-2226D-V-28769007", "ci": "28769007", "name": "EDUAR DANIEL PALMA MAZA" },
+  { "sec": "08S-2622-D1", "mat": "1-2022-2226D-V-30527005", "ci": "30527005", "name": "JORNELYS SIMONEY GOMEZ CHIRINOS" },
+  { "sec": "08S-2622-D1", "mat": "2-2022-2226D-V-30970022", "ci": "30970022", "name": "LOYNER SAMUEL FERNANDEZ MARVAL" },
+  { "sec": "08S-2622-D1", "mat": "2-2022-2226D-V-31748686", "ci": "31748686", "name": "LUIS JAVIER VÁSQUEZ CARABALLO" },
+  { "sec": "08S-2622-D1", "mat": "2-2022-2226D-V-31291085", "ci": "31291085", "name": "ALEJANDRO JOSÉ PEREIRA CISNEROS" },
+  { "sec": "08S-2622-D1", "mat": "2-2022-2226D-V-30700256", "ci": "30700256", "name": "YETZABETH SINAHIT SCORZA CANELA" },
+  { "sec": "08S-2622-D1", "mat": "2-2022-2226D-V-30226249", "ci": "30226249", "name": "ABRAHAN JESUS SALAZAR BERMUDEZ" },
+  { "sec": "08S-2622-D1", "mat": "2-2022-2226D-V-31380267", "ci": "31380267", "name": "YHON JAIRO VIVAS SANDOVAL" },
+  { "sec": "08S-2622-D1", "mat": "2-2022-2226D-V-31201259", "ci": "31201259", "name": "ELIANA JULIETH JIMENEZ CARDENAS" },
+  { "sec": "08S-2622-D1", "mat": "2-2022-2226D-V-30435807", "ci": "30435807", "name": "ALEXANDER ISAIAS ZAPATA MAYORA" },
+  { "sec": "08S-2622-D1", "mat": "2-2022-2226D-V-31201006", "ci": "31201006", "name": "MAIKOL DANIEL SANCHEZ FERNANDEZ" },
+  { "sec": "08S-2622-D1", "mat": "2-2022-2226D-V-31748701", "ci": "31748701", "name": "NATALY ALEJANDRA PIÑANGO ALVAREZ" },
+  { "sec": "08S-2622-D1", "mat": "2-2022-2226D-V-31201437", "ci": "31201437", "name": "WLADIUSCA ANTHONELA GARRIDO CEDEÑO" },
+  { "sec": "08S-2622-D1", "mat": "2-2022-2226D-V-31201173", "ci": "31201173", "name": "SHIRLEY MELISSA FERNANDEZ AVILA" },
+  { "sec": "08S-2622-D1", "mat": "2-2022-2226D-V-30226219", "ci": "30226219", "name": "CARLOS LUIS COLINA SALAZAR" },
+  { "sec": "08S-2622-D1", "mat": "1-2021-2226N-V-29815324", "ci": "29815324", "name": "ADRIAN GABRIEL MORENO HERNANDEZ" },
+  { "sec": "08S-2622-D1", "mat": "2-2022-2224D-V-30824746", "ci": "30824746", "name": "NELVIS LEONARDO FLORES PIÑERO" },
+  { "sec": "08S-2622-D1", "mat": "2-2022-2210D-V-31428157", "ci": "31428157", "name": "SARYS ESTEFANY ALDANA FIGUEROA" },
+  { "sec": "08S-2622-D1", "mat": "2-2022-2210D-V-30969660", "ci": "30969660", "name": "WILDER ALEXANDER GUERRERO ECHARRY" },
+  { "sec": "08S-2622-D1", "mat": "2-2022-2210D-V-27965139", "ci": "27965139", "name": "CRISLEY NAYELI PIRELA GONZALEZ" },
+  { "sec": "08S-2622-D1", "mat": "2-2022-2210D-V-31044619", "ci": "31044619", "name": "MARIA GABRIELA IZAGUIRRE GONZALEZ" },
+  { "sec": "08S-2622-D1", "mat": "2-2022-2210D-V-30456195", "ci": "30456195", "name": "KATTY ROSELY ECHARRY LAYA" }
+];
+
+let presentSet = new Set();
+try {
+  const saved = localStorage.getItem("unefa_di8_asistencia");
+  if (saved) presentSet = new Set(JSON.parse(saved));
+} catch (e) {}
+
+function saveState() {
+  try {
+    localStorage.setItem("unefa_di8_asistencia", JSON.stringify([...presentSet]));
+  } catch (e) {}
+}
+
+function cleanCI(raw) {
+  return String(raw || "").toUpperCase().replace(/[^0-9]/g, "").trim();
+}
+
+function render() {
+  const tbody = document.getElementById("studentBody");
+  tbody.innerHTML = "";
+
+  let pres1 = 0, pres2 = 0;
+  const total1 = STUDENTS.filter(s => s.sec === "08S-2422-D1").length;
+  const total2 = STUDENTS.filter(s => s.sec === "08S-2622-D1").length;
+
+  STUDENTS.forEach((st, idx) => {
+    const isPresent = presentSet.has(st.ci);
+    if (isPresent) {
+      if (st.sec === "08S-2422-D1") pres1++;
+      else pres2++;
+    }
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td class="center"><strong>${idx + 1}</strong></td>
+      <td class="center">${st.sec}</td>
+      <td class="center">${st.mat}</td>
+      <td class="center"><strong>${st.ci}</strong></td>
+      <td>${st.name}</td>
+      <td class="center">
+        <span class="badge ${isPresent ? 'badge-asistente' : 'badge-inasistente'}">
+          ${isPresent ? 'ASISTENTE' : 'INASISTENTE'}
+        </span>
+      </td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  const totalAll = STUDENTS.length;
+  const presAll = pres1 + pres2;
+  const abs1 = total1 - pres1;
+  const abs2 = total2 - pres2;
+  const absAll = totalAll - presAll;
+  const pctPres = totalAll ? ((presAll / totalAll) * 100).toFixed(1) + "%" : "0.0%";
+  const pctAbs = totalAll ? ((absAll / totalAll) * 100).toFixed(1) + "%" : "0.0%";
+
+  document.getElementById("kpiTotal").textContent = totalAll;
+  document.getElementById("kpiPresent").textContent = presAll;
+  document.getElementById("kpiAbsent").textContent = absAll;
+  document.getElementById("kpiPct").textContent = pctPres;
+
+  document.getElementById("tMat1").textContent = total1;
+  document.getElementById("tMat2").textContent = total2;
+  document.getElementById("tMatAll").textContent = totalAll;
+
+  document.getElementById("tPres1").textContent = pres1;
+  document.getElementById("tPres2").textContent = pres2;
+  document.getElementById("tPresAll").textContent = presAll;
+  document.getElementById("tPresPct").textContent = pctPres;
+
+  document.getElementById("tAbs1").textContent = abs1;
+  document.getElementById("tAbs2").textContent = abs2;
+  document.getElementById("tAbsAll").textContent = absAll;
+  document.getElementById("tAbsPct").textContent = pctAbs;
+}
+
+function openModal() {
+  document.getElementById("scanModal").classList.remove("hidden");
+  const inp = document.getElementById("ciInput");
+  inp.value = "";
+  inp.focus();
+}
+
+function closeModal() {
+  document.getElementById("scanModal").classList.add("hidden");
+}
+
+function showFeedback(type, htmlMsg) {
+  const box = document.getElementById("feedbackBox");
+  box.className = "feedback " + type;
+  box.innerHTML = htmlMsg;
+}
+
+function registerCI() {
+  const inp = document.getElementById("ciInput");
+  const ci = cleanCI(inp.value);
+  inp.value = "";
+  inp.focus();
+
+  if (!ci) return;
+
+  const student = STUDENTS.find(s => s.ci === ci);
+  if (!student) {
+    showFeedback("err", `Cédula <strong>${ci}</strong> no encontrada en las secciones unificadas.`);
+    return;
+  }
+
+  if (presentSet.has(ci)) {
+    showFeedback("dup", `<strong>ALUMNO YA ESCANEADO:</strong> ${student.name} (C.I. ${ci}) ya tiene asistencia registrada. No se permite doble registro.`);
+    return;
+  }
+
+  presentSet.add(ci);
+  saveState();
+  render();
+  showFeedback("ok", `<strong>ASISTENCIA REGISTRADA:</strong><br>${student.name}<br>Sección: ${student.sec} | C.I.: ${ci}`);
+}
+
+document.getElementById("ciInput").addEventListener("keydown", function(e) {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    registerCI();
+  }
+});
+
+function resetAttendance() {
+  if (confirm("¿Está seguro de reiniciar toda la asistencia de esta sesión a cero?")) {
+    presentSet.clear();
+    saveState();
+    render();
+    document.getElementById("feedbackBox").className = "feedback";
+    openModal();
+  }
+}
+
+function downloadPDF() {
+  if (typeof html2pdf === "undefined") {
+    window.print();
+    return;
+  }
+  const element = document.getElementById("actaPDF");
+  const opt = {
+    margin:       [4, 5, 4, 5],
+    filename:     'Acta_Asistencia_Defensa_Integral_VIII_UNEFA_1Hoja.pdf',
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { scale: 2, useCORS: true },
+    jsPDF:        { unit: 'mm', format: 'letter', orientation: 'portrait' },
+    pagebreak:    { mode: ['avoid-all'] }
+  };
+  html2pdf().set(opt).from(element).toPdf().get('pdf').then(function (pdf) {
+    const totalPages = pdf.internal.getNumberOfPages();
+    for (let i = totalPages; i > 1; i--) {
+      pdf.deletePage(i);
+    }
+  }).save();
+}
+
+const now = new Date();
+document.getElementById("fechaActa").textContent = "FECHA: " + now.toLocaleDateString("es-VE");
+render();
+window.onload = () => openModal();
+</script>
+</body>
 </html>
